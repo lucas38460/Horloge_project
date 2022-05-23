@@ -19,15 +19,22 @@ body {
 }
 
 .tile {
-  background-color: #ff2929;
   width: 100%;
   height: 15px;
+}
+
+.on {
+  background-color: rgb(174, 0, 255);
+} 
+
+.off {
+  background-color: #2d2d2d;
 }
 
 .huit {
   width: 20%;
   height: 100%;
-  background-color: aqua;
+  background-color: rgb(25, 41, 41);
   position: relative;
 }
 

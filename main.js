@@ -1,13 +1,9 @@
-
-
-const huits = document.querySelectorAll('.huit');
+const huits = document.querySelectorAll(".huit");
 
 let minutes = 24;
 let secondes = 0;
 
-
-
-const timer = setInterval(()=>{
+const timer = setInterval(() => {
   let tmp = "";
   if (minutes < 10) {
     tmp += "0" + minutes;
@@ -15,7 +11,7 @@ const timer = setInterval(()=>{
     tmp += minutes;
   }
   if (secondes < 10) {
-    tmp += "0" + secondes
+    tmp += "0" + secondes;
   } else {
     tmp += secondes;
   }
@@ -23,16 +19,24 @@ const timer = setInterval(()=>{
   for (let i = 0; i < huits.length; i++) {
     const huit = huits[i];
     const number = tmp[i];
+    for (const tile of huit.children) {
+      tile.classList.remove("on");
+      tile.classList.add("off");
+      if (tile.classList[2].includes(number)) {
+        tile.classList.remove("off");
+        tile.classList.add("on");
+      }
+    }
   }
 
   if (secondes === 0) {
     if (minutes === 0) {
       clearInterval(timer);
     } else {
-      minutes --;
+      minutes--;
       secondes = 59;
     }
   } else {
-    secondes --;
+    secondes--;
   }
-}, 1);
+}, 100);
